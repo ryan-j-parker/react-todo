@@ -10,3 +10,8 @@ export function checkError({ data, error }) {
   }
   return data;
 }
+
+export async function useTodo() {
+  const response = await client.from('todo').select('*');
+  return checkError(response);
+}
