@@ -11,7 +11,7 @@ export function checkError({ data, error }) {
   return data;
 }
 
-export async function useTodo() {
-  const response = await client.from('todo').select('*');
+export async function getTodos() {
+  const response = await client.from('todos').select('*');
   return checkError(response);
 }
