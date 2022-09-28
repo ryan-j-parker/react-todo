@@ -1,16 +1,27 @@
 import { useState, useEffect } from 'react';
-import { getTodos } from './services/client';
+import { createTodo, fetchTodos } from './services/client.js';
 
 export function useTodos() {
 
   const [todos, setTodos] = useState([]);
     
   useEffect(() => {
-    async function fetchTodos() {
-      const data = await getTodos();
+    async function getTodos() {
+      const data = await fetchTodos();
       setTodos(data);
+      // console.log(data);
     }
-    fetchTodos();
+    getTodos();
+  }, []);
+
+  useEffect(() => {
+    async function addTodo() {
+      const data = await createTodo();
+      setTodos(data);
+      // console.log('yo yo yo!!');
+
+    }
+    addTodo();
   }, []);
   return { todos };
 }
