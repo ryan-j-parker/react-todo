@@ -29,8 +29,8 @@ export default function Auth() {
   };
 
   return (
-    <div>
-      <div className="panel-tabs">
+    <div className="auth-box">
+      <div className="sign-in">
         <NavLink to="/auth/sign-in"><p>Sign In</p></NavLink>
         <NavLink to="/auth/sign-up"><p>Sign Up</p></NavLink>
       </div>

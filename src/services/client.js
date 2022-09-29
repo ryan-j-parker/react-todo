@@ -12,11 +12,11 @@ export function checkError({ data, error }) {
 }
 
 export async function fetchTodos() {
-  const response = await client.from('todotest').select('*');
+  const response = await client.from('todos').select('*');
   return checkError(response);
 }
 
 export async function createTodo(todo) {
-  const response = await client.from('todotest').insert(todo);
+  const response = await client.from('todos').insert(todo);
   return checkError(response);
 }

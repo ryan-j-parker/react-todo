@@ -19,3 +19,15 @@ color: brown;
 padding: 5px;
 font-size: 1.2rem;
 }
+
+.auth-box {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 600px;
+}
+
+.sign-in {
+  font-size: 1.2rem;
+
+}
