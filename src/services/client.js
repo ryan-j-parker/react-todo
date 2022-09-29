@@ -16,8 +16,8 @@ export async function fetchTodos() {
   return checkError(response);
 }
 
-export async function createTodo(todo) {
-  const response = await client.from('todos').insert([{ todo }]);
+export async function createTodo(description) {
+  const response = await client.from('todos').insert([{ description }]);
   return checkError(response);
 }
 
