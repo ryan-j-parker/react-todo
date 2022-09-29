@@ -9,7 +9,6 @@ export function useTodos() {
     async function getTodos() {
       const data = await fetchTodos();
       setTodos(data);
-      console.log(data);
     }
     getTodos();
   }, []);
@@ -18,7 +17,6 @@ export function useTodos() {
     async function addTodo() {
       const data = await createTodo();
       setTodos(data);
-      console.log('addTodo is working');
     }
     addTodo();
   }, []);

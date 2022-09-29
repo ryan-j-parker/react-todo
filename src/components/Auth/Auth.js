@@ -20,7 +20,6 @@ export default function Auth() {
 
     try {
       const user = await authUser(email, password, type);
-      console.log(user);
       setUser(user);
     } catch (e) {
             // eslint-disable-next-line no-console
