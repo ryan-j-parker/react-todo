@@ -1,9 +1,9 @@
 .header {
-    font-size: 2rem;
+    font-size: 1.6rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     color: white;
     background-color: brown;
 }
@@ -11,4 +11,31 @@
 .nav {
     margin: 0 auto;
     padding: 2px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+NavLink {
+    text-decoration: none;
+}
+
+NavLink:hover {
+    text-decoration: none;
+}
+
+NavLink:active {
+    text-decoration: none;
+}
+
+NavLink:visited {
+    text-decoration: none;
+}
+
+.button {
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

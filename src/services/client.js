@@ -17,6 +17,11 @@ export async function fetchTodos() {
 }
 
 export async function createTodo(todo) {
-  const response = await client.from('todos').insert(todo);
+  const response = await client.from('todos').insert([{ todo }]);
+  return checkError(response);
+}
+
+export async function toggleTasks({ id, complete }) {
+  const response = await client.from('todos').update({ complete: !complete }).match({ id }).single();
   return checkError(response);
 }

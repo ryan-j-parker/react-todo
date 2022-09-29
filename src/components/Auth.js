@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { useState } from 'react';
+import './Auth.css';
 import { Redirect, useParams } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import { authUser } from '../services/auth';
@@ -30,19 +31,23 @@ export default function Auth() {
 
   return (
     <div className="auth-box">
+
       <div className="sign-in">
         <NavLink to="/auth/sign-in"><p>Sign In</p></NavLink>
         <NavLink to="/auth/sign-up"><p>Sign Up</p></NavLink>
       </div>
-      <div className="form-controls">
+
+      <div className="form">
         <label>Email:</label>
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
-      <div className="form-controls">
+
+      <div className="form">
         <label>Password:</label>
         <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
-      <button onClick={clickHandler}>Submit</button>
+
+      <button className="submit" onClick={clickHandler}>Submit</button>
     </div>
   );
 }

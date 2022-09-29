@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './Header.css';
 
@@ -15,9 +15,9 @@ function Header() {
   return (
     <>
       <div className="header">
-        <Link to="/"><h2 className="nav">Alchemy ToDos</h2></Link>
+        <NavLink to="/"><h2 className="nav">Alchemy ToDos</h2></NavLink>
         <h2 className="nav">Hello!</h2>
-        <Link to="/"><button onClick={handleLogout} className="nav">Logout</button></Link>
+        <NavLink to="/"><button onClick={handleLogout} className="nav button">Logout</button></NavLink>
       </div>
     </>
   );
