@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
-import { createTodo, fetchTodos, toggleTasks } from '../services/client';
-import { useTodos } from './useTodos';
-
+import { UserContext } from '../../context/UserContext';
+import { createTodo, fetchTodos, toggleTasks } from '../../services/client';
+import { useTodos } from '../../hooks/useTodos';
+import './Tasks.css';
 
 export default function Tasks() {
   const [todo, setTodo] = useState('');
@@ -43,25 +43,20 @@ export default function Tasks() {
   return (
 
     <div className="task-box">
+      <label className="task-header">Current tasks:</label>
       {todos.map((task) => (
-        <div key={task.id}>
+        <div className="task-list" key={task.id}>
           <label className="checkbox">
-            <input
-              className="status"
-              type="checkbox"
-              checked={task.complete}
-              onChange={() => handleClick(task)}
-            />
+            <input className="status" type="checkbox" checked={task.complete}
+              onChange={() => handleClick(task)} />
             {task.description}
           </label>
         </div>
       ))}
 
       <div className="add-task">
-        <input className="new-task" type="text" placeholder="enter new task"
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
-        />
+        <input className="new-task" type="text" placeholder="enter new task" value={todo}
+          onChange={(e) => setTodo(e.target.value)} />
         <button className="add-button" onClick={handleNewTask}>
           Add task
         </button>

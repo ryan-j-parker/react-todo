@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import './Auth.css';
 import { Redirect, useParams } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
-import { authUser } from '../services/auth';
+import { UserContext } from '../../context/UserContext';
+import { authUser } from '../../services/auth';
 import { NavLink } from 'react-router-dom';
 
 export default function Auth() {

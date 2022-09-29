@@ -1,8 +1,8 @@
 import './App.css';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import Tasks from './components/Tasks';
-import Auth from './components/Auth';
+import Tasks from './components/Tasks/Tasks';
+import Auth from './components/Auth/Auth';
 import { useState } from 'react';
 import { getUser } from './services/auth';
 
