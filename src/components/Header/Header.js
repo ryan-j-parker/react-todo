@@ -16,8 +16,12 @@ function Header() {
     <>
       <div className="header">
         <NavLink to="/"><h2 className="nav title">Alchemy ToDos</h2></NavLink>
-        <h2 className="nav greeting">Hello, {user.email}!</h2>
-        <NavLink to="/"><button onClick={handleLogout} className="nav button">Logout</button></NavLink>
+        {user && (
+          <div>
+            <h2 className="nav greeting">Hello, {user.email}!</h2>
+            <NavLink to="/auth"><button onClick={handleLogout} className="nav button">Logout</button></NavLink>
+          </div>
+        )}
       </div>
     </>
   );
