@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-import { createTodo, fetchTodos, toggleTasks } from '../../services/client';
+import { createTodo, deleteTodos, fetchTodos, toggleTasks } from '../../services/client';
 import { useTodos } from '../../hooks/useTodos';
 import './Tasks.css';
 
@@ -9,6 +9,7 @@ export default function Tasks() {
   const [todo, setTodo] = useState('');
   const [complete, setComplete] = useState(false);
   const { todos, setTodos } = useTodos();
+  // const [remove, setRemove] = useState(false);
   // TODO -- redirect the user back to auth if there is not a current user
   const { user } = useContext(UserContext);
 
@@ -40,6 +41,31 @@ export default function Tasks() {
     }
   };
 
+  // click button
+  // call deleteTodos, delete it from supabase
+  // 
+
+  const handleDelete = async () => {
+    try {
+      // const deletedTask = await deleteTodos(task);
+      // setTodos((prevTasks) =>
+      //   prevTasks.map((prevTask) => (prevTask.id === task.id ? deletedTask : prevTask))
+      // );
+      // setTodos(false);
+      await deleteTodos(todo);
+      setTodos(await fetchTodos());
+      console.log('handleDelete is working');
+    } catch (e) {
+      // eslint-disable-next-line-no-console
+      console.error(e.message);
+    }
+  };
+
+  // const handleDelete = async (todo) => {
+
+  //   await deleteTodos(todo.id);
+  // };
+
   return (
 
     <div className="task-box">
@@ -50,6 +76,9 @@ export default function Tasks() {
             <input className="status" type="checkbox" checked={task.complete}
               onChange={() => handleClick(task)} />
             {task.description}
+            <button className="delete-button" onClick={handleDelete} >
+              Delete
+            </button>
           </label>
         </div>
       ))}

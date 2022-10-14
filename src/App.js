@@ -6,7 +6,6 @@ import Auth from './components/Auth/Auth';
 import { useState } from 'react';
 import { getUser } from './services/auth';
 
-
 function App() {
   const currentUser = getUser();
   const [user, setUser] = useState(currentUser);

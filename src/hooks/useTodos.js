@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createTodo, fetchTodos } from '../services/client.js';
+import { createTodo, deleteTodos, fetchTodos } from '../services/client.js';
 
 export function useTodos() {
 
@@ -20,5 +20,14 @@ export function useTodos() {
     }
     addTodo();
   }, []);
+
+  useEffect(() => {
+    async function deleteTodo() {
+      const data = await deleteTodos();
+      setTodos(data);
+    }
+    deleteTodo();
+  }, []);
+  
   return { todos, setTodos };
 }
