@@ -19,17 +19,23 @@ function Header() {
   return (
     <>
       <div className="header">
-        <NavLink to="/">
-          <h2 className="nav title">Alchemy ToDos</h2>
-        </NavLink>
+        <div className="header-wrap">
+          <NavLink to="/">
+            <h2 className="nav title">Alchemy ToDos</h2>
+          </NavLink>
+        </div>
         {user && (
-          <div>
-            <h2 className="nav greeting">Hello, {user.email}!</h2>
-            <NavLink to="/auth">
-              <button onClick={handleLogout} className="nav button">
-                Logout
-              </button>
-            </NavLink>
+          <div className="greeting">
+            <div className="hello">
+              <h2 className="nav hello">Hello, {user.email}!</h2>
+            </div>
+            <div className="btn-wrap">
+              <NavLink to="/auth/sign-in">
+                <button onClick={handleLogout} className="nav button">
+                  Logout
+                </button>
+              </NavLink>
+            </div>
           </div>
         )}
       </div>
