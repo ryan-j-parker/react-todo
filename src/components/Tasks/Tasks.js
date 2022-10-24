@@ -41,10 +41,6 @@ export default function Tasks() {
     }
   };
 
-  // click button
-  // call deleteTodos, delete it from supabase
-  //
-
   const handleDelete = async () => {
     try {
       // const deletedTask = await deleteTodos(task);
@@ -55,15 +51,10 @@ export default function Tasks() {
       await deleteTodos(todo);
       setTodos(await fetchTodos());
     } catch (e) {
-
+      // eslint-disable-next-line no-console
       console.error(e.message);
     }
   };
-
-  // const handleDelete = async (todo) => {
-
-  //   await deleteTodos(todo.id);
-  // };
 
   return (
     <div className="task-box">
