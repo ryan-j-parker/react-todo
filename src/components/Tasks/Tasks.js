@@ -43,7 +43,7 @@ export default function Tasks() {
 
   // click button
   // call deleteTodos, delete it from supabase
-  // 
+  //
 
   const handleDelete = async () => {
     try {
@@ -54,7 +54,6 @@ export default function Tasks() {
       // setTodos(false);
       await deleteTodos(todo);
       setTodos(await fetchTodos());
-      console.log('handleDelete is working');
     } catch (e) {
       // eslint-disable-next-line-no-console
       console.error(e.message);
@@ -67,16 +66,19 @@ export default function Tasks() {
   // };
 
   return (
-
     <div className="task-box">
       <label className="task-header">Current tasks:</label>
       {todos.map((task) => (
         <div className="task-list" key={task.id}>
           <label className="checkbox">
-            <input className="status" type="checkbox" checked={task.complete}
-              onChange={() => handleClick(task)} />
+            <input
+              className="status"
+              type="checkbox"
+              checked={task.complete}
+              onChange={() => handleClick(task)}
+            />
             {task.description}
-            <button className="delete-button" onClick={handleDelete} >
+            <button className="delete-button" onClick={handleDelete}>
               Delete
             </button>
           </label>
@@ -84,13 +86,17 @@ export default function Tasks() {
       ))}
 
       <div className="add-task">
-        <input className="new-task" type="text" placeholder="enter new task" value={todo}
-          onChange={(e) => setTodo(e.target.value)} />
+        <input
+          className="new-task"
+          type="text"
+          placeholder="enter new task"
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+        />
         <button className="add-button" onClick={handleNewTask}>
           Add task
         </button>
       </div>
-
     </div>
   );
 }
