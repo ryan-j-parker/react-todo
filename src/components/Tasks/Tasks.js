@@ -55,7 +55,7 @@ export default function Tasks() {
       await deleteTodos(todo);
       setTodos(await fetchTodos());
     } catch (e) {
-      // eslint-disable-next-line-no-console
+
       console.error(e.message);
     }
   };
