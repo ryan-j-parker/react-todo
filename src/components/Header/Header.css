@@ -1,0 +1,36 @@
+.header {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  background-color: brown;
+}
+
+.greeting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 60px;
+}
+
+.nav {
+  margin: 0 auto;
+  padding: 2px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hello {
+  margin: 0 60px;
+}
+
+.button {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import Tasks from './components/Tasks/Tasks';
+import Auth from './components/Auth/Auth';
+import { useState } from 'react';
+import { getUser } from './services/auth';
 
 function App() {
+  const currentUser = getUser();
+  const [user, setUser] = useState(currentUser);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header user={user} setUser={setUser} />
+      <Switch>
+        <Route path="/auth/:type" component={Auth} />
+        <Route path="/tasks" component={Tasks} />
+        <Route exact path="/">
+          {!user && <Redirect to="/auth/sign-in" />}
+          {user && <Redirect to="/tasks" />}
+        </Route>
+      </Switch>
     </div>
   );
 }
